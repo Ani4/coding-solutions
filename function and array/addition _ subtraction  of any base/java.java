@@ -18,6 +18,7 @@ public class java {
                         return;
                 }
                 System.out.println(" Subtraction " + subtraction_any_base(a, b, base));
+                System.out.println(" Multiplication " + multiplication_any_base(a, b, base));
 
         }
 
@@ -65,5 +66,29 @@ public class java {
 
                 return result;
 
+        }
+
+        public static int multiplication_any_base(int a, int b, int base) {
+                int result = 0;
+                int temp = 0;
+                int count = 1;
+                int carry = 0;
+                while (b > 0) {
+                        int dresult = 0;
+                        int tempb = b % 10;
+                        int dcount = 1;
+                        while (a > 0) {
+                                int tempa = (a % 10) + carry;
+                                a /= 10;
+                                temp = tempa * tempb;
+                                dresult += (temp / base) * dcount;
+                                carry = temp / base;
+                                dcount *= 10;
+                        }
+                        b /= 10;
+                        result = addition_any_base(result, dresult, base);
+                        count *= 10;
+                }
+                return result;
         }
 }
