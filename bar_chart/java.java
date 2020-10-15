@@ -13,7 +13,27 @@ public class java {
                 for (int i = 0; i < arr.length; i++) {
                         arr[i] = scan.nextInt();
                 }
-                int max = Collection.max(arr);
-                System.out.println(max);
+                int max = find_max(arr);
+                for (int floor = max; floor > 0; floor--) {
+                        for (int i : arr) {
+                                if (floor <= i)
+                                        System.out.print("@");
+                                else
+                                        System.out.print(" ");
+                        }
+                        System.out.println();
+
+                }
+
+        }
+
+        public static int find_max(int[] arr) {
+                int max = Integer.MIN_VALUE;
+                for (int i : arr) {
+                        if (i > max) {
+                                max = i;
+                        }
+                }
+                return max;
         }
 }
