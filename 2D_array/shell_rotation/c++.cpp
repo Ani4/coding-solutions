@@ -1,6 +1,18 @@
 #include <iostream>
 using namespace std;
 
+void rotation1d();
+void display(int r, int c, int **arr)
+{
+	for (int i = 0; i < r; i++)
+	{
+		for (int j = 0; j < c; j++)
+		{
+			cout << *(arr[r] + j) << " ";
+		}
+		cout << endl;
+	}
+}
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -20,50 +32,19 @@ int main()
 			cin >> arr[i][j];
 		}
 	}
-	int rotation;
-	cin >> rotation;
-
-	switch (rotation % 4)
-	{
-	case 1:
-		for (int j = 0; j < c; j++)
-		{
-			for (int i = r - 1; i >= 0; --i)
-			{
-				cout << arr[i][j] << " ";
-			}
-			cout << endl;
-		}
-		break;
-	case 2:
-		for (int i = r - 1; i >= 0; --i)
-		{
-			for (int j = c - 1; j >= 0; --j)
-			{
-				cout << arr[i][j] << " ";
-			}
-			cout << endl;
-		}
-		break;
-	case 3:
-		for (int j = c - 1; j >= 0; --j)
-		{
-			for (int i = 0; i < r; ++i)
-			{
-				cout << arr[i][j] << " ";
-			}
-			cout << endl;
-		}
-		break;
-	default:
-		for (int i = 0; i < r; ++i)
-		{
-			for (int j = 0; j < c; ++j)
-			{
-				cout << arr[i][j] << " ";
-			}
-			cout << endl;
-		}
-		break;
-	}
+	int rotation, shell;
+	cin >> rotation >> shell;
+	// rotateShell(arr, r, c, shell, rotation);
+	display(r, c, (int *)arr);
+	return 0;
 }
+
+// void rotateShell(int arr[][], int r, int c, int shell, int rotation)
+// {
+// 	int[] oneD = fillOnedFromShell(arr, r, c, shell);
+// 	rotation1d(oneD, sizeof(oneD), rotation);
+// 	fillShellFromOned(arr, r, c, shell, oneD);
+// }
+// void rotation1d(int arr[], int r, int c)
+// {
+// }
