@@ -37,8 +37,7 @@ public class java {
                         // bottom
                         for (int i = maxr, j = minc; j <= maxc; j++) {
                                 pw.println(arr[i][j]);
-                                count++;
-
+                                count++;        
                         }
                         maxr--;
 
