@@ -35,6 +35,8 @@ public class java {
                 }
                 pw.flush();
                 System.out.println(test_output());
+                br.close();
+                pw.close();
 
         }
 
@@ -49,10 +51,16 @@ public class java {
 
                         if (line1 == null && line2 == null)
                                 break;
-                        else if (line1 != line2)
+                        else if (line1 != line2) {
+                                tr.close();
+                                or.close();
                                 return false;
+                        }
 
                 }
+                tr.close();
+                or.close();
                 return true;
+
         }
 }
